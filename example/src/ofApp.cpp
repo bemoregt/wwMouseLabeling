@@ -44,5 +44,5 @@ void ofApp::draw()
 {
     mImage.draw(0, 0);
     mResult.draw(320, 0);
-    mLabel.draw(0, 240);
+    mLabel.draw(320 * 2, 0);
 }
