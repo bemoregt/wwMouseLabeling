@@ -15,6 +15,5 @@ public:
     ofImage mLabel;
     
     ofxLabelingBS mLabeling;
-    ofxRegionInfoBS mRegionInfo;
     
 };

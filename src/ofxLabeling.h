@@ -3,16 +3,6 @@
 #include "ofMain.h"
 #include "Labeling.h"
 
-namespace ofxLabelingUtils
-{
-    static void convertRGBtoGray(ofImage & img)
-    {
-        // TODO: is right?
-        img.setImageType(OF_IMAGE_GRAYSCALE);
-    }
-}
-
-
 template<class SrcT, class DstT>
 class ofxLabeling : public Labeling<SrcT, DstT>
 {
@@ -52,9 +42,7 @@ protected:
         unsigned char * dstpx = dst.getPixels();
         short *s = result;
         for ( int i = 0; i < w * h; i++ )
-        {
-//            dstpx[i] = static_cast<unsigned char>(*s);
-            
+        {            
             if ( *s == 0 ) {
                 dstpx[i*3+0] = 0;
                 dstpx[i*3+1] = 0;
@@ -147,8 +135,6 @@ public:
     ofImage & getLabelingImageRef(){ return mrLabelingImage; }
     ofImage & getVirtualColorImageRef(){ return mrVirtualColorImage; }
     ofShortImage & getShortImageRef(){ return mrShortImage; }
-    
-    
     
     int Exec(ofImage & src,
              const bool is_sort_region,
