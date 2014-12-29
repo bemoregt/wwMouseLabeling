@@ -136,6 +136,42 @@ public:
     ofImage & getVirtualColorImageRef(){ return mrVirtualColorImage; }
     ofShortImage & getShortImageRef(){ return mrShortImage; }
     
+    int getNumRegions(){ return base::GetNumOfRegions(); }
+    int size() { return getNumRegions(); }
+    
+    ofVec2f getCenter(const int regionIndex)
+    {
+        float x, y;
+        base::GetResultRegionInfo(regionIndex)->GetCenter(x, y);
+        return ofVec2f(x, y);
+    }
+    
+    ofVec2f getCentroid(const int regionIndex)
+    {
+        float x, y;
+        base::GetResultRegionInfo(regionIndex)->GetCenterOfGravity(x, y);
+        return ofVec2f(x, y);
+    }
+    
+    ofVec2f getMin(const int regionIndex)
+    {
+        int x, y;
+        base::GetResultRegionInfo(regionIndex)->GetMin(x, y);
+        return ofVec2f(x, y);
+    }
+    
+    ofVec2f getMax(const int regionIndex)
+    {
+        int x, y;
+        base::GetResultRegionInfo(regionIndex)->GetMax(x, y);
+        return ofVec2f(x, y);
+    }
+    
+    int getNumPixels(const int regionIndex)
+    {
+        return base::GetResultRegionInfo(regionIndex)->GetNumOfPixels();
+    }
+    
     int Exec(ofImage & src,
              const bool is_sort_region,
              const int region_size_min,

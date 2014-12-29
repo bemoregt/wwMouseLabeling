@@ -11,28 +11,14 @@ void ofApp::setup()
     mLabel = mLabeling.getLabelingImage();
     
     // get region info
-    for (int i = 0; i < mLabeling.GetNumOfRegions() - 1; ++i)
+    for (int i = 0; i < mLabeling.size(); ++i)
     {
-        ofxRegionInfoBS * ri = mLabeling.GetResultRegionInfo(i);
-        
-        int ix, iy;
-        float x, y;
-        
         cout << "region " << i << endl;
-        
-        ri->GetCenter(x, y);
-        cout << "center: " << x << " " << y << endl;
-        
-        ri->GetCenterOfGravity(x, y);
-        cout << "center of gravity: " << x << " " << y << endl;
-        
-        ri->GetMin(ix, iy);
-        cout << "min point: " << ix << " " << iy << endl;
-        
-        ri->GetMax(ix, iy);
-        cout << "max point: " << ix << " " << iy << endl;
-        
-        cout << "number of pixels: " << ri->GetNumOfPixels() << "\n\n";
+        cout << "pixels: " << mLabeling.getNumPixels(i) << endl;
+        cout << "center points: " << mLabeling.getCenter(i) << endl;
+        cout << "centroid: " << mLabeling.getCentroid(i) << endl;
+        cout << "min points: " << mLabeling.getMin(i) << endl;
+        cout << "max points: " << mLabeling.getMax(i) << endl << endl;
     }
 }
 
