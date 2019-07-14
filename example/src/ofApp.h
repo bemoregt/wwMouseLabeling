@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxLabeling.h"
 
+//------------------------------------------------------------
 class ofApp : public ofBaseApp{
     
 public:

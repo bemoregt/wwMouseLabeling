@@ -2,6 +2,8 @@
 #include "ofApp.h"
 
 int main( ){
-	ofSetupOpenGL(320 * 3,240,OF_WINDOW);
+	ofSetupOpenGL(1536, 512, OF_WINDOW);
+    
+    ofSetWindowTitle("Labeling");
 	ofRunApp(new ofApp());
 }

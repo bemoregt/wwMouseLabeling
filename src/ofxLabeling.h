@@ -26,7 +26,7 @@ protected:
     void generateLabelingImageAsUC(short * result, int w, int h, ofImage & dst)
     {
         dst.allocate(w, h, OF_IMAGE_GRAYSCALE);
-        unsigned char * dstpx = dst.getPixels();
+        unsigned char * dstpx = dst.getPixels().getData();
         short *s = result;
         for ( int i = 0; i < w * h; i++ )
         {
@@ -39,7 +39,7 @@ protected:
     void generateVirtualColorImage(short * result, int w, int h, ofImage & dst)
     {
         dst.allocate(w, h, OF_IMAGE_COLOR);
-        unsigned char * dstpx = dst.getPixels();
+        unsigned char * dstpx = dst.getPixels().getData();
         short *s = result;
         for ( int i = 0; i < w * h; i++ )
         {            
@@ -190,7 +190,7 @@ public:
         int size = w * h;
         short * tdst = new short[size];
         
-        int res = base::Exec(src.getPixels(), tdst, src.getWidth(), src.getHeight(), is_sort_region, region_size_min);
+        int res = base::Exec(src.getPixels().getData(), tdst, src.getWidth(), src.getHeight(), is_sort_region, region_size_min);
         
         if (gen_uc_labeling_image) generateLabelingImageAsUC(tdst, w, h, mrLabelingImage);
         if (gen_virtual_color_image) generateVirtualColorImage(tdst, w, h, mrVirtualColorImage);
