@@ -1,4 +1,4 @@
-ofxLabeling
+wwMouseLabeling
 ===========
 
 ![ofxLabeling](aa.png)
